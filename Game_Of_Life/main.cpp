@@ -1,16 +1,18 @@
 #include <SDL.h>
 #include "TakeInput.h"
+#include "CalculateNext.h"
 
 
 int main(int argc, char* argv[]) {
 
 	TakeInput takeInput("input.txt");
+	CalculateNext calculateNext(takeInput.GetInput());
 
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Window* window = SDL_CreateWindow("title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
 
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
 	SDL_RenderClear(renderer);

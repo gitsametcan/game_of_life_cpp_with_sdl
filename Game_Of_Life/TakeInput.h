@@ -2,10 +2,7 @@
 #include <array>
 #include <string>
 #include <fstream>
-
-constexpr int height = 900;
-
-constexpr int width = 1600;
+#include "Constants.h"
 
 class TakeInput
 {
@@ -13,9 +10,9 @@ public:
 	TakeInput(const std::string& input);
 	~TakeInput();
 
-	std::array<std::array<bool, height>, width>& GetInput();
+	std::array<std::array<bool, width>, height>& GetInput();
 
 private:
-	std::array<std::array<bool, height>, width> inputArray;
+	std::array<std::array<bool, width>, height> inputArray;
 };
 

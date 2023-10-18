@@ -131,13 +131,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CalculateNext.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="TakeInput.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculateNext.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TakeInput.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

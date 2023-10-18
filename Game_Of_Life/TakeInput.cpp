@@ -27,7 +27,7 @@ TakeInput::~TakeInput()
 {
 }
 
-std::array<std::array<bool, height>, width>& TakeInput::GetInput()
+std::array<std::array<bool, width>, height>& TakeInput::GetInput()
 {
 	return inputArray;
 }

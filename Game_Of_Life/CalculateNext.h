@@ -1,16 +1,14 @@
 #pragma once
-#include "array"
-
-constexpr int height = 900;
-
-constexpr int width = 1600;
+#include <array>
+#include "Constants.h"
 
 class CalculateNext
 {
 public:
-	CalculateNext(std::array<std::array<bool, height>, width>& prev);
+	CalculateNext(std::array<std::array<bool, width>, height>& prev);
 	~CalculateNext();
 private:
-	std::array<std::array<bool, height>, width> currentArray;
+	bool LifeOrDeath(int livingNeighbour, bool currentState);
+	int LivingNeighbour(std::array<std::array<bool, width>, height>& temp,int x, int y);
 };
 
