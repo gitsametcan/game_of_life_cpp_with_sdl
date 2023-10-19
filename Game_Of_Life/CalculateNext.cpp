@@ -1,5 +1,7 @@
 #include "CalculateNext.h"
 
+#include <iostream>
+
 CalculateNext::CalculateNext(std::array<std::array<bool, width>, height>& prev)
 {
 	std::array<std::array<bool, width>, height> temp;
@@ -11,7 +13,7 @@ CalculateNext::CalculateNext(std::array<std::array<bool, width>, height>& prev)
 
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width;j++) {
-			prev[i][j] = LifeOrDeath(LivingNeighbour(temp,i,j), temp[i][j]);
+			prev[i][j] = LifeOrDeath(LivingNeighbour(temp,j,i), temp[i][j]);
 		}
 	}
 }
@@ -38,21 +40,20 @@ int CalculateNext::LivingNeighbour(std::array<std::array<bool, width>, height>& 
 {
 	int livingNeighbour = 0;
 
-	int prev_x = -1, next_x = -1, prev_y = -1, next_y = -1;
+	int prev_x = -1, next_x = 1, prev_y = -1, next_y = 1;
 
 	if (x == 0) prev_x = 0;
 
-	if (x == width - 1) prev_x = 0;
+	if (x == width - 1) next_x = 0;
 
 	if (y == 0) prev_y = 0;
 
-	if (y == height - 1) prev_y = 0;
+	if (y == height - 1) next_y = 0;
 
-	for (int i = prev_x; i <= prev_x; i++) {
-		for (int j = prev_y; j <= prev_y; j++) {
-			if (i != 0 && j != 0) {
-				if (temp[x + i][y + j] == 1) livingNeighbour++;
-			}
+	for (int j = prev_y; j <= next_y; j++) {
+		for (int i = prev_x; i <= next_x; i++) {
+			if (i == 0 && j == 0) continue;
+			if (temp[y + j][x + i] == 1) livingNeighbour++;
 		}
 	}
 
